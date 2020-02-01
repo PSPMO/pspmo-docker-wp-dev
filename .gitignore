@@ -1,0 +1,7 @@
+/artifacts/wp-content
+/temp
+
+# Vim cache.
+.*.swp
+.*.swo
+
