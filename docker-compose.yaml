@@ -1,27 +1,27 @@
 version: '3.1'
 
 services:
-  iahspeurope-wp:
+  pspmo-wp:
     image: wordpress:5.3
     restart: always
     ports:
-      - 6901:80
+      - 6903:80
     environment:
-      WORDPRESS_DB_HOST: iahspeurope-mysql
+      WORDPRESS_DB_HOST: pspmo-mysql
       WORDPRESS_DB_USER: exampleuser
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - "./artifacts/wp-content:/var/www/html/wp-content"
     networks:
-      - iahspeurope
+      - pspmo
 
-  iahspeurope-mysql:
+  pspmo-mysql:
     image: mysql:5.7
     restart: always
     ports:
       # We're opening this so that we can use our MySQL clients.
-      - 6902:3306
+      - 6904:3306
     environment:
       MYSQL_DATABASE: exampledb
       MYSQL_USER: exampleuser
@@ -30,10 +30,10 @@ services:
     volumes:
       - "db:/var/lib/mysql"
     networks:
-      - iahspeurope
+      - pspmo
 
 volumes:
   db:
 
 networks:
-  iahspeurope:
+  pspmo:
